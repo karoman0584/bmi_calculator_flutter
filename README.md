@@ -4,7 +4,7 @@ BMI Calculator flutter project using Android Studio
 
 ## What you will create
 
-![Finished App](https://github.com/karoman0584/Images/blob/main/bmi-calculator-demo-flutter.png)
+![Finished App](https://github.com/karoman0584/Images/blob/main/bmi-calculator-demo-flutter.gif)
 
 ## What you will learn
 

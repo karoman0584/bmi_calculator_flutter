@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_flutter/bmi_calculator.dart';
 import 'package:bmi_calculator_flutter/screens/results_page.dart';
 import 'package:bmi_calculator_flutter/components/round_icon_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -102,9 +103,9 @@ class _InputPageState extends State<InputPage> {
                         thumbColor: Color(0xFFEB1555),
                         overlayColor: Color(0x29EB1555),
                         thumbShape:
-                        RoundSliderThumbShape(enabledThumbRadius: 13.0),
+                            RoundSliderThumbShape(enabledThumbRadius: 13.0),
                         overlayShape:
-                        RoundSliderOverlayShape(overlayRadius: 26.0),
+                            RoundSliderOverlayShape(overlayRadius: 26.0),
                       ),
                       child: Slider(
                         value: height.toDouble(),
@@ -213,8 +214,16 @@ class _InputPageState extends State<InputPage> {
             ),
             BottomButton(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultsPage()));
+                BMICalculator calc =
+                    BMICalculator(weight: weight, height: height);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ResultsPage(
+                              bmiResult: calc.calculate(),
+                              resultText: calc.getResult(),
+                              interpretation: calc.getInterpretation(),
+                            )));
               },
               title: 'CALCULATE',
             ),
